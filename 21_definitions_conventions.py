@@ -624,7 +624,7 @@
 # except Exception:                                         # generic except block for any other exceptions
 #     print("An unexpected error occurred.")
 # finally:                                                  # finally block
-#     print("Do some cleanup here.")                         # always executes regardless of exceptions
+#     print("Do some cleanup here.")                        # always executes regardless of exceptions
 
 # Python file detection
 # 
@@ -632,8 +632,8 @@
 # # WITHIN THE PROJECT FOLDER, CREATE A NEW FILE CALLED test.txt
 # # WITHIN THE test.txt FILE, ADD THE TEXT: "I like pizza." THEN CLOSE THE FILE
 #
-# file_path = "test.txt" # relative file path 
-# #file_path = "C:\\Users\\HP\\Desktop\\text.txt" # absolute file path
+# file_path = "test.txt"                                    # relative file path 
+# #file_path = "C:\\Users\\HP\\Desktop\\text.txt"           # absolute file path
 # if os.path.exists(file_path):                             # check if file exists
 #     print(f"The location {file_path} exists")
 #
@@ -645,5 +645,109 @@
 # else:
 #     print(f"The location does not exist")
 
+# Python writing files (.txt, .json, .csv)
+#
+# import json
+# import csv
 # 
+# txt_data = "I like pizza!"
+#
+# file_path = "C:\\Users\\HP\\Desktop\\text.txt"                         # absolute file path
+#
+# try:
+#     with open(file_path, 'w') as file:                                  # open file in write mode ## If mode = x and the file already exists, it will raise a FileExistsError
+#         for employee in employees_list:
+#             file.write("txt_data")                                      # write data to file      ## If mode = a and the file already exists, it will append data to the end of the file. Inside paraentheses, write "\n" + txt_data
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print(f"Error: The file '{file_path}' already exists.")
+#
+##
+# employees_list = ["Alice", Bob", "Charlie", "Diana"]
+#
+# file_path = "C:\\Users\\HP\\Desktop\\text.txt"                          # absolute file path
+#
+# try:
+#     with open(file_path, mode='w') as file:                             # open file in write mode ## If mode = x and the file already exists, it will raise a FileExistsError
+#         for employee in employees:
+#             file.write(employee + " ")                                  # write data to file      ## If mode = a and the file already exists, it will append data to the end of the file
+#         json.dump(employees_dictionary, file, indent=4)                 # write JSON data to file
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print(f"Error: The file '{file_path}' already exists.")
+#
+# employees= {"name": "Alice", 
+#                     "age": 20, 
+#                     "job": "Developer"}
+# 
+# file_path = "C:\\Users\\HP\\Desktop\\output.json"                       # absolute file path
+#
+# try:
+#     with open(file_path, mode='w') as file:                             # open file in write mode ## If mode = x and the file already exists, it will raise a FileExistsError
+#         for employee in employees_list:
+#             file.write(employee + " ")                                  # write data to file      ## If mode = a and the file already exists, it will append data to the end of the file
+#         json.dump(employee, file, indent=4)                             # write JSON data to file
+#         print(f"json file '{file_path}' was created")
+# except FileExistsError:
+#     print(f"Error: The file '{file_path}' already exists.")
+#
+##
+# employees = [["Name", "Age", "Job"], 
+#                       ["Alice", 20, "Developer"], 
+#                       ["Bob", 22, "Designer"], 
+#                       ["Charlie", 19, "Intern"], 
+#                       ["Diana", 21, "Manager"]]
+# 
+# file_path_csv = "C:\\Users\\HP\\Desktop\\output.csv"                     # absolute file path for csv
+#
+# try:
+#     with open(file_path, 'w', newline="") as file:            # open file in write mode ## If mode = x and the file already exists, it will raise a FileExistsError
+#         writer = csv.writer(file)                                       # create a CSV writer object
+#         for row in employees_list_csv:
+#             writer.writerow(row)                                        # write CSV data to file
+#         print(f"txt file '{file_path}' was created")
+# except FileExistsError:
+#     print(f"Error: The file '{file_path}' already exists.")
 
+# Python reading files (.txt, .json, .csv)
+#
+# import json
+# import csv
+#
+# file_path = "C:\\Users\\HP\\Desktop\\input.txt"                              # absolute file path
+#
+# try:
+#     with open(file=file_path, mode='r') as file:                             # open file in read mode
+#         content = file.read()                                                # read the entire file
+#         print(content)                                                       # print the content of the file 
+# except FileNotFoundError:
+#     print(f"Error: The file '{file_path}' was not found.")
+# expect PermissionError:
+#     print(f"Error: You do not have permission to read the file '{file_path}'.")
+#
+# file_path = "C:\\Users\\HP\\Desktop\\input.json"                             # absolute file path
+# 
+# try:
+#     with open(file=file_path, mode='r') as file:                             # open file in read mode
+#         content = json.load(file)                                            # read the entire file
+#         print(content["name"])                                               # print the content of the file 
+# except FileNotFoundError:
+#     print(f"Error: The file '{file_path}' was not found.")
+# expect PermissionError:
+#     print(f"Error: You do not have permission to read the file '{file_path}'.")
+#
+# file_path = "C:\\Users\\HP\\Desktop\\input.csv"                              # absolute file path
+# 
+# try:
+#     with open(file=file_path, mode='r') as file:                             # open file in read mode
+#         content = csv.reader(file)                                           # read the entire file
+#         for line in content:
+#             print(line)                                                      # print the content of the file 
+# except FileNotFoundError:
+#     print(f"Error: The file '{file_path}' was not found.")
+# expect PermissionError:
+#     print(f"Error: You do not have permission to read the file '{file_path}'.")
+
+# Dates and Times in Python
+#
+# import datetime
