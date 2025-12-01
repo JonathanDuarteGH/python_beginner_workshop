@@ -751,3 +751,99 @@
 # Dates and Times in Python
 #
 # import datetime
+#
+# date = datetime.date(2025. 12, 25)
+# date = datetime.date.today()                                      # get today's date
+#
+# time = datetime.time(14, 30, 0)                                   # create a time object for 2:30 PM
+#
+# now = datetime.datetime.now()                                     # get current date and time
+#
+# now = now.strftime("%Y-%m-%d %H:%M:%S")                           # format date and time
+#
+# print(date)                                                       # print the date
+# print(time)                                                       # print the time
+# print(now)                                                        # print the current date and time
+#
+# target_datetime = datetime.datetime(2024, 12, 24, 23, 59, 59)     # create a target date and time for Christmas Eve 2025
+# current_datetime = datetime.datetime.now()                        # get the current date and time
+#
+# if target_datetime < current_datetime:
+#     print("The target date and time has already passed.")
+# else:
+#     print("The target date and time has not yet passed.")
+
+# Multithreading = used to perform multiple tasks concurrently within a single program
+#                  Good for I/O tasks like reading files or fetching data from APIs
+#                  threading.Thread(target=my_function)
+#
+# import threading
+# import time
+#
+# def walk_dog(first, last):                                           # define function to print text after 8 seconds
+#     time.sleep(8)
+#     print(f"You finished walking {first} {last}")
+#
+# def take_out_trash():                                                # define function to print text after 2 seconds
+#     time.sleep(2)
+#     print("You take out the trash")
+#
+# def get_mail():
+#     time.sleep(4)                                                    # define function to print text after 4 seconds
+#     print("You get the mail")
+#
+# walk_dog()                                                           # call function first
+# take_out_trash()                                                     # call function second
+# get_mail()                                                           # call function third
+#
+# chore1 = threading.Thread(target=walk_dog, args="Abbey", "Wood")     # access the threading module and call the thread contructor to pass in "target" function and args using an object variable. calling the threading module always ensures that the first seconds are executed first
+# chore1.start()                                                       # take the thread object and call the start method
+#
+# chore2 = threading.Thread(target=take_out_trash)                     # access the threading module and call the thread contructor using an object variable
+# chore2.start()                                                       # take the thread object and call the start method
+#
+# chore3 = threading.Thread(target=get_mail)                           # access the threading module and call the thread contructor using an object variable
+# chore3.start()                                                       # take the thread object and call the start method
+#
+# chore1.join()                                                        # access the threading module and call the join method to wait until the threads are finished, then execute the rest of the program
+# chore2.join()
+# chore3.join()
+#
+# print("All chores are complete")
+
+# API
+#
+# import requests
+#
+# base_url = "https://pokeapi.co/api/v2/""
+#
+# def get_pokemon_info(name):
+#      url = f"{base_url}/pokemon/name{name}
+#      response = requests.get(url)                                    # use requests module and use the get method to assign it to a response object
+#      print(response)                                                 # throws a http response status code of 200 (which means its ok). others are in documentation
+# 
+#      if reponse.status_code == 200:
+#          pokemon_data = response.json()                              # json method converts the acquired data into a python dictionary. it will consist of key-value paris much like a json file
+#          return pokemon_data
+#      else:
+#          print(f"Failed to retrieve data {reponse.status_code}")
+#
+# pokemon_name = "pikachu"
+# pokemon_info = get_pokemon_info(pokemon_name)
+#
+# if pokemon_info:
+#     print(f"Name: {pokemon_info["name"].capitalize()}")
+#     print(f"ID: {pokemon_info["id"]}")
+#     print(f"Height: {pokemon_info["height"]}")
+#     print(f"Weight: {pokemon_info["weight"]}")
+#
+# pokemon_name2 = "typhlosion"
+# pokemon_info2 = get_pokemon_info(pokemon_name)
+#
+# if pokemon_info2:
+#     print(f"Name: {pokemon_info2["name"].capitalize()}")
+#     print(f"ID: {pokemon_info2["id"]}")
+#     print(f"Height: {pokemon_info2["height"]}")
+#     print(f"Weight: {pokemon_info2["weight"]}")
+
+# PyQt5 Introduction
